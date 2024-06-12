@@ -7,7 +7,7 @@ import useFloorPlanStore from '/store/useFloorPlanStore';
 const FloorPlan = dynamic(() => import('/components/FloorPlan'), { ssr: false });
 
 const HomePage = () => {
-  const { tables, moveTable, saveLayout, loadLayout, addTable, renameTable, setGuests, deleteTable } = useFloorPlanStore();
+  const { tables, moveTable, saveLayout, loadLayout, addTable } = useFloorPlanStore();
 
   useEffect(() => {
     loadLayout();
@@ -26,13 +26,7 @@ const HomePage = () => {
       <h1>Floor Plan</h1>
       <button onClick={handleSave}>Save Layout</button>
       <button onClick={handleAddTable}>Add Table</button>
-      <FloorPlan
-        tables={tables}
-        moveTable={moveTable}
-        renameTable={renameTable}
-        setGuests={setGuests}
-        deleteTable={deleteTable}
-      />
+      <FloorPlan tables={tables} moveTable={moveTable} />
     </div>
   );
 };
